@@ -5,8 +5,10 @@ Search container <Search />
 import React from 'react';
 import {Component} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getWeather} from '../actions/index'
 
-export default class Search extends Component {
+class Search extends Component {
   // Setting the state of the container
   constructor(props) {
     super(props)
@@ -16,7 +18,8 @@ export default class Search extends Component {
   }
 
   onFormSubmit(event) {
-    event.preventdefault();
+    event.preventDefault();
+    this.props.getWeather(this.state.input)
     this.setState({
       input: ''
     });
@@ -43,3 +46,10 @@ export default class Search extends Component {
     )
   }
 }
+
+// Connecting the container to the index action
+function mapConnectToProps(connect) {
+  return bindActionCreators({getWeather}, connect);
+}
+
+export default connect(null, mapConnectToProps)(Search)
