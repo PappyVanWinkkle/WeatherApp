@@ -11,6 +11,7 @@ export const GET_WEATHER = 'GET_WEATHER';
 export function getWeather(city) {
   const url = `${URL_KEY}&q=${city}`;
   const request = axios.get(url);
+  console.log('request', request);
   return {
     type: GET_WEATHER,
     payload: request

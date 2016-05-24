@@ -34,18 +34,24 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="ui grid">
-         <div className="twelve wide column">
-             <form onSubmit={this.onFormSubmit} className="ui action input">
-                <input type="text" placeholder="Please enter a City"
-                onChange={this.onInputHandler}/>
-                <button className="ui yellow button">Submit</button>
-             </form>
-         </div>
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--10-col">
+        <form onSubmit={this.onFormSubmit}>
+           <div className="mdl-textfield mdl-js-textfield">
+            <input className="mdl-textfield__input" type="text" id="sample1"
+             onChange={this.onInputHandler}/>
+            <label className="mdl-textfield__label" >Enter A City</label>
+           </div>
+           <span><button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+             Submit
+           </button></span>
+        </form>
+        </div>
       </div>
     )
   }
 }
+
 
 // Connecting the container to the index action
 function mapConnectToProps(connect) {
